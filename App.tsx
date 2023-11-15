@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import Tick from './assets/svgs/Tick';
 
 const Congrats = () => {
   return (
     <View style={styles.container}>
       <View style={styles.circleContainer}>
         <View style={styles.circle}>
-          {/* SVG content will be replaced with equivalent React Native components */}
+          <Tick />
         </View>
       </View>
       <View style={styles.textContainer}>
@@ -37,8 +38,6 @@ const styles = StyleSheet.create({
     height: 85,
     borderRadius: 42.5,
     backgroundColor: '#1A2DD9',
-    borderColor: 'white',
-    borderWidth: 4,
   },
   textContainer: {
     width: 336,
