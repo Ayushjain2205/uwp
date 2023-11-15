@@ -26,6 +26,7 @@ const Congrats = () => {
 
 const styles = StyleSheet.create({
   container: {
+    fontFamily: 'WorkSans-Regular',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
   text: {
+    fontFamily: 'WorkSans-Regular',
     fontSize: 24,
     textAlign: 'center',
   },
