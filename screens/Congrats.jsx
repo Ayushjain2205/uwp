@@ -86,6 +86,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A2DD9',
     justifyContent: 'center', // Center the Tick SVG vertically and horizontally
     alignItems: 'center',
+    borderWidth: 0, // Set border width to 0 to remove any borders
+    borderColor: 'transparent', // You can also set the border color to transparent
+    shadowOpacity: 0, // Set shadow opacity to 0 to remove shadows on iOS
+    elevation: 0,
   },
   textContainer: {
     width: 336,
