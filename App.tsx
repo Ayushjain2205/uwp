@@ -100,7 +100,7 @@ const App = () => {
           options={{
             tabBarIcon: ({focused}) => (
               <View style={styles.iconContainer}>
-                <HouseIcon />
+                <HouseIcon color={focused ? '#1A2DD9' : 'black'} />
                 {focused && <View style={styles.activeDot} />}
               </View>
             ),
@@ -112,7 +112,7 @@ const App = () => {
           options={{
             tabBarIcon: ({focused}) => (
               <View style={styles.iconContainer}>
-                <WalletIcon />
+                <WalletIcon color={focused ? '#1A2DD9' : 'black'} />
                 {focused && <View style={styles.activeDot} />}
               </View>
             ),
@@ -124,7 +124,7 @@ const App = () => {
           options={{
             tabBarIcon: ({focused}) => (
               <View style={styles.iconContainer}>
-                <ProfileIcon />
+                <ProfileIcon color={focused ? '#1A2DD9' : 'black'} />
                 {focused && <View style={styles.activeDot} />}
               </View>
             ),
