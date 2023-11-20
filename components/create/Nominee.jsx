@@ -9,9 +9,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import Menu from '../../assets/svgs/Menu';
-import Plus from '../../assets/svgs/Plus';
+import Back from '../../assets/svgs/Back';
 
-const About1 = ({changeScreen}) => {
+const Nominee = ({changeScreen, goToPreviousScreen}) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView
@@ -19,61 +19,38 @@ const About1 = ({changeScreen}) => {
         style={styles.container}>
         {/* Top section with SVG icon */}
         <View style={styles.topSection}>
+          <TouchableOpacity onPress={goToPreviousScreen}>
+            <Back />
+          </TouchableOpacity>
           <Menu />
         </View>
 
         <View style={styles.formSection}>
-          <Text style={styles.sectionTitle}>Tell us about2 you</Text>
+          <Text style={styles.sectionTitle}>Nominee details</Text>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>First name</Text>
-            <TextInput style={styles.input} value="Raj" />
+            <Text style={styles.label}>Nominee name </Text>
+            <TextInput style={styles.input} value="Aarav Arora" />
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Last name</Text>
-            <TextInput style={styles.input} value="Arora" />
+            <Text style={styles.label}>Nominee DOB</Text>
+            <TextInput style={styles.input} value="12/09/2008" />
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Date of birth</Text>
-            <TextInput style={styles.input} value="19/02/2001" />
-          </View>
-        </View>
-
-        {/* Work section */}
-        <View style={[styles.formSection, {marginTop: 60}]}>
-          <Text style={styles.sectionTitle}>About your work</Text>
-
-          {/* Job title input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Job Title</Text>
-            <TextInput style={styles.input} value="Clerk" />
-          </View>
-
-          {/* Years input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Years</Text>
-            <TextInput style={styles.input} value="7" />
-          </View>
-
-          {/* Salary input */}
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Salary</Text>
-            <TextInput style={styles.input} value="5000 - 50000" />
+            <Text style={styles.label}>Mobile Number</Text>
+            <TextInput style={styles.input} value="8721093" />
           </View>
         </View>
-
-        {/* Add work button */}
-        <TouchableOpacity style={styles.addButton}>
-          <Plus />
-          <Text style={styles.addButtonText}>Add another work</Text>
-        </TouchableOpacity>
 
         {/* Save button */}
         <View style={styles.saveButtonContainer}>
           <TouchableOpacity style={styles.saveButton} onPress={changeScreen}>
             <Text style={styles.saveButtonText}>Save & Continue</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.skipButtonText}>Skip</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -95,10 +72,11 @@ const styles = StyleSheet.create({
   },
   topSection: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    alignItems: 'center', // Align items vertically
     marginBottom: 40,
     marginTop: 32,
-    width: 336,
+    width: 336, // Adjust width to take full width
   },
   formSection: {
     flexDirection: 'column',
@@ -140,9 +118,11 @@ const styles = StyleSheet.create({
     fontFamily: 'WorkSans-Regular',
     // Add styles for add icon if needed
   },
+
   saveButtonContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 60,
     marginBottom: 40,
   },
@@ -160,7 +140,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
   },
+  skipButtonText: {
+    fontFamily: 'WorkSans-Regular',
+    marginTop: 30, // Add space between buttons
+    color: '#3277F5', // Use a color that matches your design for text links
+  },
   // Add any additional styles you may need
 });
 
-export default About1;
+export default Nominee;

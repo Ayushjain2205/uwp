@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import About from '../components/create/About';
 import Health from '../components/create/Health';
+import Bank from '../components/create/Bank';
+import Nominee from '../components/create/Nominee';
 
 const Create = () => {
   const [currentScreen, setCurrentScreen] = useState('About');
@@ -13,7 +15,10 @@ const Create = () => {
         nextScreen = 'Health';
         break;
       case 'Health':
-        nextScreen = 'Health';
+        nextScreen = 'Bank';
+        break;
+      case 'Bank':
+        nextScreen = 'Nominee';
         break;
       // Add more cases for additional screens if needed
       default:
@@ -29,6 +34,12 @@ const Create = () => {
       case 'Health':
         prevScreen = 'About';
         break;
+      case 'Bank':
+        prevScreen = 'Health';
+        break;
+      case 'Nominee':
+        prevScreen = 'Bank';
+        break;
       // Add more cases if you have more screens
       default:
         prevScreen = 'About'; // or exit the create flow if needed
@@ -42,6 +53,18 @@ const Create = () => {
       {currentScreen === 'About' && <About changeScreen={goToNextScreen} />}
       {currentScreen === 'Health' && (
         <Health
+          changeScreen={goToNextScreen}
+          goToPreviousScreen={goToPreviousScreen}
+        />
+      )}
+      {currentScreen === 'Bank' && (
+        <Bank
+          changeScreen={goToNextScreen}
+          goToPreviousScreen={goToPreviousScreen}
+        />
+      )}
+      {currentScreen === 'Nominee' && (
+        <Nominee
           changeScreen={goToNextScreen}
           goToPreviousScreen={goToPreviousScreen}
         />
