@@ -7,6 +7,7 @@ import {
   CongratsScreen1,
   CongratsScreen2,
 } from './screens/Congrats';
+import Splash from './screens/Splash';
 import HouseIcon from './assets/svgs/HouseIcon';
 import WalletIcon from './assets/svgs/WalletIcon';
 import ProfileIcon from './assets/svgs/ProfileIcon';
@@ -17,7 +18,7 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      {/* <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
@@ -66,7 +67,8 @@ const App = () => {
             ),
           }}
         />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
+      <Splash />
     </NavigationContainer>
   );
 };
