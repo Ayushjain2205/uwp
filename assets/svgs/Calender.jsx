@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 
-const ProfileIcon = () => {
+const Calender = () => {
   return (
     <View>
       <Svg
@@ -24,4 +24,4 @@ const ProfileIcon = () => {
   );
 };
 
-export default ProfileIcon;
+export default Calender;

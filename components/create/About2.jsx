@@ -8,10 +8,10 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import Menu from '../assets/svgs/Menu';
-import Plus from '../assets/svgs/Plus';
+import Menu from '../../assets/svgs/Menu';
+import Plus from '../../assets/svgs/Plus';
 
-const About = () => {
+const About1 = ({changeScreen}) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView
@@ -23,7 +23,7 @@ const About = () => {
         </View>
 
         <View style={styles.formSection}>
-          <Text style={styles.sectionTitle}>Tell us about you</Text>
+          <Text style={styles.sectionTitle}>Tell us about2 you</Text>
 
           <View style={styles.inputContainer}>
             <Text style={styles.label}>First name</Text>
@@ -72,7 +72,7 @@ const About = () => {
 
         {/* Save button */}
         <View style={styles.saveButtonContainer}>
-          <TouchableOpacity style={styles.saveButton}>
+          <TouchableOpacity style={styles.saveButton} onPress={changeScreen}>
             <Text style={styles.saveButtonText}>Save & Continue</Text>
           </TouchableOpacity>
         </View>
@@ -163,4 +163,4 @@ const styles = StyleSheet.create({
   // Add any additional styles you may need
 });
 
-export default About;
+export default About1;
