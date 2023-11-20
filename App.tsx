@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import Splash from './screens/Splash'; // Adjust the path as per your directory structure
 import Landing from './screens/Landing'; // Adjust the path as per your directory structure
-
+import About from './screens/About';
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {showSplash ? <Splash /> : <Landing />}
+      {showSplash ? <Splash /> : <About />}
     </NavigationContainer>
   );
 };
