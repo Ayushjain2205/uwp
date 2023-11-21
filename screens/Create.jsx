@@ -6,6 +6,7 @@ import Bank from '../components/create/Bank';
 import Nominee from '../components/create/Nominee';
 import CamScreen from '../components/create/CamScreen';
 import Aadhar from '../components/create/Aadhar';
+import Photo from '../components/create/Photo';
 
 const Create = () => {
   const [currentScreen, setCurrentScreen] = useState('About');
@@ -24,6 +25,9 @@ const Create = () => {
         break;
       case 'Nominee':
         nextScreen = 'Aadhar';
+        break;
+      case 'Aadhar':
+        nextScreen = 'Photo';
         break;
       // Add more cases for additional screens if needed
       default:
@@ -47,6 +51,9 @@ const Create = () => {
         break;
       case 'Aadhar':
         prevScreen = 'Nominee';
+        break;
+      case 'Photo':
+        prevScreen = 'Aadhar';
         break;
       // Add more cases if you have more screens
       default:
@@ -79,6 +86,12 @@ const Create = () => {
       )}
       {currentScreen === 'Aadhar' && (
         <Aadhar
+          changeScreen={goToNextScreen}
+          goToPreviousScreen={goToPreviousScreen}
+        />
+      )}
+      {currentScreen === 'Photo' && (
+        <Photo
           changeScreen={goToNextScreen}
           goToPreviousScreen={goToPreviousScreen}
         />
