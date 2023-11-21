@@ -10,6 +10,24 @@ import ProfileIcon from '../assets/svgs/ProfileIcon';
 
 const Tab = createBottomTabNavigator();
 
+const tabConfig = [
+  {
+    name: 'Home',
+    component: Home,
+    icon: HouseIcon,
+  },
+  {
+    name: 'Wallet',
+    component: Wallet,
+    icon: WalletIcon,
+  },
+  {
+    name: 'Profile',
+    component: Profile,
+    icon: ProfileIcon,
+  },
+];
+
 const Landing = () => {
   return (
     <Tab.Navigator
@@ -17,51 +35,25 @@ const Landing = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: {
-          backgroundColor: '#FFFFFF',
-          borderTopColor: '#1A2DD9',
-          borderTopWidth: 2,
-          height: 80,
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
+        tabBarStyle: styles.tabBarStyle,
       }}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <View style={styles.iconContainer}>
-              <HouseIcon color={focused ? '#1A2DD9' : 'black'} />
-              {focused && <View style={styles.activeDot} />}
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Wallet"
-        component={Wallet}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <View style={styles.iconContainer}>
-              <WalletIcon color={focused ? '#1A2DD9' : 'black'} />
-              {focused && <View style={styles.activeDot} />}
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <View style={styles.iconContainer}>
-              <ProfileIcon color={focused ? '#1A2DD9' : 'black'} />
-              {focused && <View style={styles.activeDot} />}
-            </View>
-          ),
-        }}
-      />
+      {tabConfig.map(tab => (
+        <Tab.Screen
+          key={tab.name}
+          name={tab.name}
+          component={tab.component}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <View style={styles.iconContainer}>
+                {React.createElement(tab.icon, {
+                  color: focused ? '#1A2DD9' : 'black',
+                })}
+                {focused && <View style={styles.activeDot} />}
+              </View>
+            ),
+          }}
+        />
+      ))}
     </Tab.Navigator>
   );
 };
@@ -80,6 +72,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: -10,
     left: 9,
+  },
+  tabBarStyle: {
+    backgroundColor: '#FFFFFF',
+    borderTopColor: '#1A2DD9',
+    borderTopWidth: 2,
+    height: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
