@@ -1,115 +1,52 @@
-// Create.jsx
 import React, {useState} from 'react';
 import About from '../components/create/About';
 import Health from '../components/create/Health';
 import Bank from '../components/create/Bank';
 import Nominee from '../components/create/Nominee';
-import CamScreen from '../components/create/CamScreen';
 import Aadhar from '../components/create/Aadhar';
 import Photo from '../components/create/Photo';
 import Process from '../components/create/Process';
 
+const screenComponents = {
+  About: About,
+  Health: Health,
+  Bank: Bank,
+  Nominee: Nominee,
+  Aadhar: Aadhar,
+  Photo: Photo,
+  Process: Process,
+};
+
+const screenOrder = [
+  'About',
+  'Health',
+  'Bank',
+  'Nominee',
+  'Aadhar',
+  'Photo',
+  'Process',
+];
+
 const Create = () => {
-  const [currentScreen, setCurrentScreen] = useState('About');
+  const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
+  const CurrentScreenComponent =
+    screenComponents[screenOrder[currentScreenIndex]];
 
   const goToNextScreen = () => {
-    let nextScreen = '';
-    switch (currentScreen) {
-      case 'About':
-        nextScreen = 'Health';
-        break;
-      case 'Health':
-        nextScreen = 'Bank';
-        break;
-      case 'Bank':
-        nextScreen = 'Nominee';
-        break;
-      case 'Nominee':
-        nextScreen = 'Aadhar';
-        break;
-      case 'Aadhar':
-        nextScreen = 'Photo';
-        break;
-      case 'Photo':
-        nextScreen = 'Process';
-        break;
-      // Add more cases for additional screens if needed
-      default:
-        nextScreen = 'About';
-        break;
-    }
-    setCurrentScreen(nextScreen);
+    setCurrentScreenIndex(prevIndex =>
+      prevIndex < screenOrder.length - 1 ? prevIndex + 1 : prevIndex,
+    );
   };
 
   const goToPreviousScreen = () => {
-    let prevScreen = '';
-    switch (currentScreen) {
-      case 'Health':
-        prevScreen = 'About';
-        break;
-      case 'Bank':
-        prevScreen = 'Health';
-        break;
-      case 'Nominee':
-        prevScreen = 'Bank';
-        break;
-      case 'Aadhar':
-        prevScreen = 'Nominee';
-        break;
-      case 'Photo':
-        prevScreen = 'Aadhar';
-        break;
-      case 'Process':
-        prevScreen = 'Photo';
-        break;
-      // Add more cases if you have more screens
-      default:
-        prevScreen = 'About'; // or exit the create flow if needed
-        break;
-    }
-    setCurrentScreen(prevScreen);
+    setCurrentScreenIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : 0));
   };
 
   return (
-    <React.Fragment>
-      {currentScreen === 'About' && <About changeScreen={goToNextScreen} />}
-      {currentScreen === 'Health' && (
-        <Health
-          changeScreen={goToNextScreen}
-          goToPreviousScreen={goToPreviousScreen}
-        />
-      )}
-      {currentScreen === 'Bank' && (
-        <Bank
-          changeScreen={goToNextScreen}
-          goToPreviousScreen={goToPreviousScreen}
-        />
-      )}
-      {currentScreen === 'Nominee' && (
-        <Nominee
-          changeScreen={goToNextScreen}
-          goToPreviousScreen={goToPreviousScreen}
-        />
-      )}
-      {currentScreen === 'Aadhar' && (
-        <Aadhar
-          changeScreen={goToNextScreen}
-          goToPreviousScreen={goToPreviousScreen}
-        />
-      )}
-      {currentScreen === 'Photo' && (
-        <Photo
-          changeScreen={goToNextScreen}
-          goToPreviousScreen={goToPreviousScreen}
-        />
-      )}
-      {currentScreen === 'Process' && (
-        <Process
-          changeScreen={goToNextScreen}
-          goToPreviousScreen={goToPreviousScreen}
-        />
-      )}
-    </React.Fragment>
+    <CurrentScreenComponent
+      changeScreen={goToNextScreen}
+      goToPreviousScreen={goToPreviousScreen}
+    />
   );
 };
 
