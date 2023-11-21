@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import About from '../components/create/About';
 import Health from '../components/create/Health';
 import Bank from '../components/create/Bank';
@@ -27,10 +27,16 @@ const screenOrder = [
   'Process',
 ];
 
-const Create = () => {
+const Create = ({onProcessComplete}) => {
   const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
   const CurrentScreenComponent =
     screenComponents[screenOrder[currentScreenIndex]];
+
+  useEffect(() => {
+    if (currentScreenIndex === screenOrder.indexOf('Process')) {
+      onProcessComplete();
+    }
+  }, [currentScreenIndex, onProcessComplete]);
 
   const goToNextScreen = () => {
     setCurrentScreenIndex(prevIndex =>
