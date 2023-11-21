@@ -1,16 +1,19 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {CongratsScreen, CongratsScreen1, CongratsScreen2} from './Congrats'; // Adjust the path as per your directory structure
-import HouseIcon from '../assets/svgs/HouseIcon'; // Adjust the path as per your directory structure
-import WalletIcon from '../assets/svgs/WalletIcon'; // Adjust the path as per your directory structure
-import ProfileIcon from '../assets/svgs/ProfileIcon'; // Adjust the path as per your directory structure
+import Home from './Home';
+import Wallet from './Wallet';
+import Profile from './Profile';
+import HouseIcon from '../assets/svgs/HouseIcon';
+import WalletIcon from '../assets/svgs/WalletIcon';
+import ProfileIcon from '../assets/svgs/ProfileIcon';
 
 const Tab = createBottomTabNavigator();
 
 const Landing = () => {
   return (
     <Tab.Navigator
+      initialRouteName="Profile"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -24,8 +27,8 @@ const Landing = () => {
         },
       }}>
       <Tab.Screen
-        name="Congrats"
-        component={CongratsScreen}
+        name="Home"
+        component={Home}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
@@ -36,8 +39,8 @@ const Landing = () => {
         }}
       />
       <Tab.Screen
-        name="Congrats1"
-        component={CongratsScreen1}
+        name="Wallet"
+        component={Wallet}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
@@ -48,8 +51,8 @@ const Landing = () => {
         }}
       />
       <Tab.Screen
-        name="Congrats2"
-        component={CongratsScreen2}
+        name="Profile"
+        component={Profile}
         options={{
           tabBarIcon: ({focused}) => (
             <View style={styles.iconContainer}>
