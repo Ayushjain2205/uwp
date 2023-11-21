@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Menu from '../../assets/svgs/Menu';
 import Back from '../../assets/svgs/Back';
+import Upload from '../../assets/svgs/Upload';
 
 const Health = ({changeScreen, goToPreviousScreen}) => {
   return (
@@ -34,8 +35,10 @@ const Health = ({changeScreen, goToPreviousScreen}) => {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Last name</Text>
-            <TextInput style={styles.input} value="Arora" />
+            <Text style={styles.label}>Health forms</Text>
+            <View style={styles.healthForm}>
+              <Upload />
+            </View>
           </View>
         </View>
 
@@ -99,6 +102,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
     fontFamily: 'WorkSans-Regular',
+  },
+  healthForm: {
+    padding: 10,
+    height: 70,
+    width: 336, // Fixed width, adjust as needed
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 6,
+    fontFamily: 'WorkSans-Regular',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   addButton: {
     flexDirection: 'row',
