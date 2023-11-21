@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     marginTop: 32,
     textAlign: 'center',
-    fontFamily: 'WorkSans-Medium',
+    fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
   },
   description: {
     fontSize: 12,
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     height: 54,
     lineHeight: 18,
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
   },
 });
 

@@ -12,7 +12,7 @@ const App = () => {
     if (currentScreen === 'Splash') {
       // Show splash screen for 5 seconds
       timer = setTimeout(() => {
-        setCurrentScreen('Landing');
+        setCurrentScreen('Create');
       }, 5000);
     }
 

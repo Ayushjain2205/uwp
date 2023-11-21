@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
     width: 336,
   },
   inputContainer: {
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     fontSize: 14,
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
   },
   input: {
     padding: 10,

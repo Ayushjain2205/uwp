@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
   },
   inputContainer: {
     flexDirection: 'column',
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     fontSize: 14,
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
   },
   input: {
     padding: 10,
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
   addButtonText: {
     color: '#3277F5',
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
     // Add styles for add icon if needed
   },
   saveButtonContainer: {
@@ -137,6 +140,7 @@ const styles = StyleSheet.create({
   saveButtonText: {
     color: 'white',
     fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
     fontWeight: '500',
     fontSize: 16,
   },
