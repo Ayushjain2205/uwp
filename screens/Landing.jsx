@@ -4,6 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Wallet from './Wallet';
 import Profile from './Profile';
+import SchemePage from './Scheme';
+import {CongratsScreen} from './Congrats';
 import HouseIcon from '../assets/svgs/HouseIcon';
 import WalletIcon from '../assets/svgs/WalletIcon';
 import ProfileIcon from '../assets/svgs/ProfileIcon';
@@ -18,7 +20,7 @@ const tabConfig = [
   },
   {
     name: 'Wallet',
-    component: Wallet,
+    component: CongratsScreen,
     icon: WalletIcon,
   },
   {
