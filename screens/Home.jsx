@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -14,9 +14,12 @@ import schemeImage3 from '../assets/images/schemes/schemeImage3.png';
 import schemeImage4 from '../assets/images/schemes/schemeImage4.png';
 import UWP from '../assets/svgs/UWP';
 import Scan from '../assets/svgs/Scan';
-import SchemesSection from '../components/UI/SchemesSection';
+
+const categories = ['For you', 'Health', 'Food', 'Education', 'Finance'];
 
 const Home = () => {
+  const [selectedCategory, setSelectedCategory] = useState('For you');
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView
@@ -29,40 +32,63 @@ const Home = () => {
               <UWP size={40} />
               <Text style={styles.barLeftText}>4723723010</Text>
             </View>
-            <View>
-              <TouchableOpacity style={styles.barRight}>
-                <Scan />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity style={styles.barRight}>
+              <Scan />
+            </TouchableOpacity>
           </View>
         </View>
-        {/* <SchemesSection /> */}
-        <View>
-          <View style={styles.gap} />
-          <Scheme
-            name="Rashtriya Swasthya Bima Yojana"
-            category="Health Insurance"
-            image={schemeImage1}
-          />
-          <View style={styles.gap} />
-          <Scheme
-            name="Pradhan Mantri Jeevan "
-            category="Life Insurance"
-            image={schemeImage2}
-          />
-          <View style={styles.gap} />
-          <Scheme
-            name="Pradhan Mantri Awas Yojana"
-            category="Housing"
-            image={schemeImage3}
-          />
-          <View style={styles.gap} />
-          <Scheme
-            name="Pradhan Mantri Ujjwala Yojana"
-            category="Energy"
-            image={schemeImage4}
-          />
-        </View>
+
+        {/* Schemes Section */}
+        <Text style={styles.title}>Schemes for you</Text>
+        <ScrollView
+          horizontal
+          contentContainerStyle={styles.categoriesContainer}
+          showsHorizontalScrollIndicator={false}>
+          {categories.map((category, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.categoryItem}
+              onPress={() => setSelectedCategory(category)}>
+              <Text
+                style={[
+                  styles.categoryText,
+                  selectedCategory === category && styles.categoryTextActive,
+                ]}>
+                {category}
+              </Text>
+              {selectedCategory === category && (
+                <View style={styles.underline} />
+              )}
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+
+        {/* Scheme Cards */}
+        <View style={styles.gap} />
+        <Scheme
+          name="Rashtriya Swasthya Bima Yojana"
+          category="Health Insurance"
+          image={schemeImage1}
+        />
+        <View style={styles.gap} />
+        <Scheme
+          name="Pradhan Mantri Jeevan Jyoti Bima Yojana"
+          category="Life Insurance"
+          image={schemeImage2}
+        />
+        <View style={styles.gap} />
+        <Scheme
+          name="Pradhan Mantri Awas Yojana"
+          category="Housing"
+          image={schemeImage3}
+        />
+        <View style={styles.gap} />
+        <Scheme
+          name="Pradhan Mantri Ujjwala Yojana"
+          category="Energy"
+          image={schemeImage4}
+        />
+        <View style={styles.gap} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -78,18 +104,15 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     backgroundColor: '#fff',
   },
-  gap: {
-    height: 30,
+  topSection: {
+    marginHorizontal: 27,
+    marginTop: 40,
   },
   welcome: {
     fontSize: 24,
     fontWeight: '500',
     fontFamily: 'WorkSans-Regular',
     letterSpacing: 0.6,
-  },
-  topSection: {
-    marginHorizontal: 27,
-    marginTop: 40,
   },
   bar: {
     marginTop: 30,
@@ -121,6 +144,43 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  title: {
+    width: 365,
+    fontSize: 16,
+    fontWeight: '500',
+    marginTop: 58,
+    marginBottom: 22,
+    marginLeft: 27,
+    fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
+  },
+  categoriesContainer: {
+    paddingLeft: 27,
+    flexDirection: 'row',
+  },
+  categoryItem: {
+    marginRight: 22,
+    alignItems: 'center',
+  },
+  underline: {
+    height: 2,
+    backgroundColor: 'black',
+    width: '100%',
+    marginTop: 3,
+  },
+  categoryText: {
+    color: '#D8D8D8',
+    fontSize: 16,
+    fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
+  },
+  categoryTextActive: {
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  gap: {
+    height: 30,
   },
 });
 

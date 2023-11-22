@@ -1,51 +1,82 @@
-import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
-const SchemesCategory = () => {
+const categories = ['For you', 'Health', 'Food', 'Education', 'Finance'];
+
+const SchemesForYou = () => {
+  const [selectedCategory, setSelectedCategory] = useState('For you');
+
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>Schemes for you</Text>
       <ScrollView
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        style={styles.scrollView}>
-        <View style={styles.categoryContainer}>
-          <Text style={styles.activeCategory}>For you</Text>
-          <Text style={styles.category}>Health</Text>
-          <Text style={styles.category}>Food</Text>
-          <Text style={styles.category}>Education</Text>
-          <Text style={styles.category}>Finance</Text>
-        </View>
+        horizontal
+        contentContainerStyle={styles.categoriesContainer}
+        showsHorizontalScrollIndicator={false}>
+        {categories.map(category => (
+          <TouchableOpacity
+            key={category}
+            style={styles.categoryItem}
+            onPress={() => setSelectedCategory(category)}>
+            <Text
+              style={[
+                styles.categoryText,
+                selectedCategory === category && styles.categoryTextActive,
+              ]}>
+              {category}
+            </Text>
+            {selectedCategory === category && <View style={styles.underline} />}
+          </TouchableOpacity>
+        ))}
       </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+  },
   title: {
     fontSize: 16,
     fontWeight: '500',
-    marginTop: 58,
-    marginBottom: 22,
+    marginTop: 50,
+    marginBottom: 23,
+    marginLeft: 27,
+    fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
   },
-  scrollView: {
-    backgroundColor: 'white',
-    paddingHorizontal: 4,
-  },
-  categoryContainer: {
+  categoriesContainer: {
+    paddingHorizontal: 27,
     flexDirection: 'row',
-    alignItems: 'center',
   },
-  activeCategory: {
-    borderBottomWidth: 2,
-    borderBottomColor: 'black',
-    paddingBottom: 2,
-    marginRight: 4,
+  categoryItem: {
+    marginRight: 22,
+    alignItems: 'center', // Center the text and underline
   },
-  category: {
+  underline: {
+    height: 2,
+    backgroundColor: 'black',
+    width: '100%', // Full width of the text
+    marginTop: 3,
+  },
+  categoryText: {
     color: '#D8D8D8',
-    marginRight: 4,
+    fontSize: 16,
+    paddingBottom: 2, // Spacing for the underline
+    fontFamily: 'WorkSans-Regular',
+    letterSpacing: 0.6,
+  },
+  categoryTextActive: {
+    color: 'black',
+    fontWeight: '500',
   },
 });
 
-export default SchemesCategory;
+export default SchemesForYou;
