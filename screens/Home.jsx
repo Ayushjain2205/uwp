@@ -190,6 +190,7 @@ import AllSchemes from './AllSchemes';
 import SchemePage from './Scheme';
 import {CongratsScreen} from './Congrats';
 import Scan from './Scan';
+import Pay from './Pay';
 import {View, Text} from 'react-native';
 
 const SchemeManager = () => {
@@ -215,6 +216,10 @@ const SchemeManager = () => {
     setCurrentScreen('Scanner');
   };
 
+  const showPay = () => {
+    setCurrentScreen('Pay');
+  };
+
   // Render the current screen based on state
   return (
     <>
@@ -230,7 +235,8 @@ const SchemeManager = () => {
       {currentScreen === 'CongratsScreen' && (
         <CongratsScreen onDone={showAllSchemes} />
       )}
-      {currentScreen === 'Scanner' && <Scan onDone={showAllSchemes} />}
+      {currentScreen === 'Scanner' && <Scan onDone={showPay} />}
+      {currentScreen === 'Pay' && <Pay onDone={showAllSchemes} />}
     </>
   );
 };
