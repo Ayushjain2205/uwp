@@ -9,6 +9,7 @@ import {CongratsScreen} from './Congrats';
 import HouseIcon from '../assets/svgs/HouseIcon';
 import WalletIcon from '../assets/svgs/WalletIcon';
 import ProfileIcon from '../assets/svgs/ProfileIcon';
+import ScanPage from './Scan';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +21,7 @@ const tabConfig = [
   },
   {
     name: 'Wallet',
-    component: CongratsScreen,
+    component: ScanPage,
     icon: WalletIcon,
   },
   {
