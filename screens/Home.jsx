@@ -189,6 +189,7 @@ import React, {useState} from 'react';
 import AllSchemes from './AllSchemes';
 import SchemePage from './Scheme';
 import {CongratsScreen} from './Congrats';
+import Scan from './Scan';
 import {View, Text} from 'react-native';
 
 const SchemeManager = () => {
@@ -210,11 +211,18 @@ const SchemeManager = () => {
     setCurrentScreen('AllSchemes');
   };
 
+  const showScanner = () => {
+    setCurrentScreen('Scanner');
+  };
+
   // Render the current screen based on state
   return (
     <>
       {currentScreen === 'AllSchemes' && (
-        <AllSchemes onSchemeSelect={showSchemePage} />
+        <AllSchemes
+          onSchemeSelect={showSchemePage}
+          onScanSelect={showScanner}
+        />
       )}
       {currentScreen === 'SchemePage' && (
         <SchemePage onOptInSelect={showCongratsScreen} />
@@ -222,6 +230,7 @@ const SchemeManager = () => {
       {currentScreen === 'CongratsScreen' && (
         <CongratsScreen onDone={showAllSchemes} />
       )}
+      {currentScreen === 'Scanner' && <Scan onDone={showAllSchemes} />}
     </>
   );
 };

@@ -19,7 +19,7 @@ import Scan from '../assets/svgs/Scan';
 
 const categories = ['For you', 'Health', 'Food', 'Education', 'Finance'];
 
-const AllSchemes = ({onSchemeSelect}) => {
+const AllSchemes = ({onSchemeSelect, onScanSelect}) => {
   const [selectedCategory, setSelectedCategory] = useState('For you');
   const navigation = useNavigation();
 
@@ -38,7 +38,7 @@ const AllSchemes = ({onSchemeSelect}) => {
               <UWP size={40} />
               <Text style={styles.barLeftText}>4723723010</Text>
             </View>
-            <TouchableOpacity style={styles.barRight}>
+            <TouchableOpacity style={styles.barRight} onPress={onScanSelect}>
               <Scan />
             </TouchableOpacity>
           </View>

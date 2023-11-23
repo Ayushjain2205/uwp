@@ -9,20 +9,20 @@ import {
   Image,
 } from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
+import Gallery from '../assets/svgs/Gallery';
 
-function Scan() {
+function Scan({onDone}) {
   const camera = useRef(null);
   const devices = useCameraDevices();
   const device = devices.find(d => d.position === 'back');
 
-  const [showCamera, setShowCamera] = useState(false);
+  const [showCamera, setShowCamera] = useState(true);
   const [imageSource, setImageSource] = useState('');
 
   useEffect(() => {
     async function getPermission() {
       const newCameraPermission = await Camera.requestCameraPermission();
       console.log(newCameraPermission);
-      console.log(devices);
     }
     getPermission();
   }, []);
@@ -53,10 +53,17 @@ function Scan() {
           />
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={styles.camButton}
-              onPress={() => capturePhoto()}
-            />
+            <Gallery />
+            <TouchableOpacity onPress={onDone}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '500',
+                  fontFamily: 'WorkSans-Regular',
+                }}>
+                Upload from Gallery
+              </Text>
+            </TouchableOpacity>
           </View>
         </>
       ) : (
@@ -144,7 +151,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   buttonContainer: {
-    backgroundColor: 'rgba(0,0,0,0.2)',
+    flexDirection: 'row',
+    gap: 8,
+    backgroundColor: '#fff',
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
