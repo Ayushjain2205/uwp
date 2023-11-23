@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import {RecoilRoot} from 'recoil';
+import {RlyMumbaiNetwork, Network} from '@rly-network/mobile-sdk';
 import {NavigationContainer} from '@react-navigation/native';
 import Splash from './screens/Splash'; // Adjust the path as per your directory structure
 import Landing from './screens/Landing'; // Adjust the path as per your directory structure
 import Create from './screens/Create';
-
+export const RlyNetwork = RlyMumbaiNetwork;
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState('Splash');
 
@@ -27,6 +29,8 @@ const App = () => {
     }, 5000);
   };
 
+  RlyNetwork.setApiKey(process.env.RALLY_API_KEY);
+
   let content;
   switch (currentScreen) {
     case 'Splash':
@@ -42,7 +46,11 @@ const App = () => {
       content = <Splash />;
   }
 
-  return <NavigationContainer>{content}</NavigationContainer>;
+  return (
+    <RecoilRoot>
+      <NavigationContainer>{content}</NavigationContainer>
+    </RecoilRoot>
+  );
 };
 
 export default App;

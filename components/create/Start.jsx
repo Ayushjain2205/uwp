@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -9,15 +9,29 @@ import {
   StyleSheet,
 } from 'react-native';
 import Menu from '../../assets/svgs/Menu';
-import Back from '../../assets/svgs/Back';
-import Upload from '../../assets/svgs/Upload';
+import {createAccount, getAccount} from '@rly-network/mobile-sdk';
+import {useRecoilState} from 'recoil';
+import {account, userDetails as userDetailsState} from '../../state';
 import TouchID from 'react-native-touch-id';
 
 const Start = ({changeScreen, goToPreviousScreen}) => {
+  const [, setUserDetails] = useRecoilState(userDetailsState);
+  const [, setAccount] = useRecoilState(account);
+
+  const [mobile] = useState('');
+  const [name, setName] = useState('');
+  const createAcc = async () => {
+    setTakingAction(true);
+    setUserDetails({name: name, mobile: mobile});
+    await createAccount();
+    const act = await getAccount();
+
+    setRlyAccount(act);
+  };
   const authenticate = () => {
-    TouchID.authenticate('to demo this react-native component')
+    TouchID.authenticate('To create UWP Card')
       .then(success => {
-        // Success code
+        createAcc();
         console.log('auth success');
         setTimeout(() => {
           changeScreen();
@@ -36,9 +50,6 @@ const Start = ({changeScreen, goToPreviousScreen}) => {
         style={styles.container}>
         {/* Top section with SVG icon */}
         <View style={styles.topSection}>
-          {/* <TouchableOpacity onPress={goToPreviousScreen}>
-            <Back />
-          </TouchableOpacity> */}
           <Menu />
         </View>
 
