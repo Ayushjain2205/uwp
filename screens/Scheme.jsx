@@ -10,9 +10,25 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import Back from '../assets/svgs/Back';
 import Menu from '../assets/svgs/Menu';
+import TouchID from 'react-native-touch-id';
 
 const SchemePage = ({onOptInSelect}) => {
   const navigation = useNavigation();
+
+  const authenticate = () => {
+    TouchID.authenticate('to demo this react-native component')
+      .then(success => {
+        // Success code
+        console.log('auth success');
+        setTimeout(() => {
+          onOptInSelect();
+        }, 2000);
+      })
+      .catch(error => {
+        // Failure code
+        console.log('auth fail');
+      });
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -33,7 +49,7 @@ const SchemePage = ({onOptInSelect}) => {
         </View>
 
         {/* Opt-in Button */}
-        <TouchableOpacity style={styles.optInButton} onPress={onOptInSelect}>
+        <TouchableOpacity style={styles.optInButton} onPress={authenticate}>
           <Text style={styles.optInButtonText}>Opt in</Text>
         </TouchableOpacity>
 

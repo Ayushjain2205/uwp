@@ -5898,6 +5898,11 @@
     "css-select" "^5.1.0"
     "css-tree" "^1.1.3"
 
+"react-native-touch-id@^4.4.1":
+  "integrity" "sha512-1jTl8fC+0fxvqegy/XXTyo6vMvPhjzkoDdaqoYZx0OH8AT250NuXnNPyKktvigIcys3+2acciqOeaCall7lrvg=="
+  "resolved" "https://registry.npmjs.org/react-native-touch-id/-/react-native-touch-id-4.4.1.tgz"
+  "version" "4.4.1"
+
 "react-native-video@^5.2.1":
   "integrity" "sha512-aJlr9MeTuQ0LpZ4n+EC9RvhoKeiPbLtI2Rxy8u7zo/wzGevbRpWHSBj9xZ5YDBXnAVXzuqyNIkGhdw7bfdIBZw=="
   "resolved" "https://registry.npmjs.org/react-native-video/-/react-native-video-5.2.1.tgz"

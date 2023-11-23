@@ -11,8 +11,24 @@ import {
 import Menu from '../../assets/svgs/Menu';
 import Back from '../../assets/svgs/Back';
 import Upload from '../../assets/svgs/Upload';
+import TouchID from 'react-native-touch-id';
 
 const Start = ({changeScreen, goToPreviousScreen}) => {
+  const authenticate = () => {
+    TouchID.authenticate('to demo this react-native component')
+      .then(success => {
+        // Success code
+        console.log('auth success');
+        setTimeout(() => {
+          changeScreen();
+        }, 2000);
+      })
+      .catch(error => {
+        // Failure code
+        console.log('auth fail');
+      });
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView
@@ -37,7 +53,7 @@ const Start = ({changeScreen, goToPreviousScreen}) => {
 
         {/* Save button */}
         <View style={styles.saveButtonContainer}>
-          <TouchableOpacity style={styles.saveButton} onPress={changeScreen}>
+          <TouchableOpacity style={styles.saveButton} onPress={authenticate}>
             <Text style={styles.saveButtonText}>Create Universal ID</Text>
           </TouchableOpacity>
         </View>
