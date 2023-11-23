@@ -1,15 +1,13 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import QRCode from 'react-native-qrcode-svg'; // Make sure to install the package
+import UWP from '../../assets/svgs/UWP';
 
 const UWPCard = () => {
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-        <Image
-          source={require('../../assets/images/uwp-blue.png')} // Replace with your local image
-          style={styles.logo}
-        />
+        <UWP size={48} color="#1A2DD9" />
         <Text style={styles.companyName}>UWP</Text>
       </View>
       <View
