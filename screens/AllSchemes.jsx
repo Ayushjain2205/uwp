@@ -18,6 +18,28 @@ import UWP from '../assets/svgs/UWP';
 import Scan from '../assets/svgs/Scan';
 
 const categories = ['For you', 'Health', 'Food', 'Education', 'Finance'];
+const schemeData = [
+  {
+    name: 'Rashtriya Swasthya Bima Yojana',
+    category: 'Health Insurance',
+    image: schemeImage1,
+  },
+  {
+    name: 'RATION CARD : nfsa',
+    category: 'Food',
+    image: schemeImage2,
+  },
+  {
+    name: 'ITC : VOCATIONAL TRAINING',
+    category: 'Education',
+    image: schemeImage3,
+  },
+  {
+    name: 'Dhirubhai Ambani Hospital',
+    category: 'Health',
+    image: schemeImage4,
+  },
+];
 
 const AllSchemes = ({onSchemeSelect, onScanSelect}) => {
   const [selectedCategory, setSelectedCategory] = useState('For you');
@@ -71,35 +93,17 @@ const AllSchemes = ({onSchemeSelect, onScanSelect}) => {
 
         {/* Scheme Cards */}
         <View style={styles.gap} />
-        <Scheme
-          name="Rashtriya Swasthya Bima Yojana"
-          category="Health Insurance"
-          image={schemeImage1}
-          onPress={onSchemeSelect}
-        />
-
-        <View style={styles.gap} />
-        <Scheme
-          name="Pradhan Mantri Jeevan Jyoti Bima Yojana"
-          category="Life Insurance"
-          image={schemeImage2}
-          onPress={onSchemeSelect}
-        />
-        <View style={styles.gap} />
-        <Scheme
-          name="Pradhan Mantri Awas Yojana"
-          category="Housing"
-          image={schemeImage3}
-          onPress={onSchemeSelect}
-        />
-        <View style={styles.gap} />
-        <Scheme
-          name="Pradhan Mantri Ujjwala Yojana"
-          category="Energy"
-          image={schemeImage4}
-          onPress={onSchemeSelect}
-        />
-        <View style={styles.gap} />
+        {schemeData.map((scheme, index) => (
+          <React.Fragment key={scheme.name + index}>
+            <Scheme
+              name={scheme.name}
+              category={scheme.category}
+              image={scheme.image}
+              onPress={() => onSchemeSelect(scheme)}
+            />
+            <View style={styles.gap} />
+          </React.Fragment>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

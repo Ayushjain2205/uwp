@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     fontFamily: 'WorkSans-Regular',
     letterSpacing: 0.6,
     fontSize: 16,
+    textTransform: 'uppercase',
   },
   category: {
     marginTop: 6,
