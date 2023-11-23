@@ -54,7 +54,7 @@ const AllSchemes = ({onSchemeSelect, onScanSelect}) => {
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}>
         <View style={styles.topSection}>
-          <Text style={styles.welcome}>Hello, Rashmi</Text>
+          <Text style={styles.welcome}>Hello, Raj</Text>
           <View style={styles.bar}>
             <View style={styles.barLeft}>
               <UWP size={40} />

@@ -18,7 +18,7 @@ const UWPCard = () => {
           marginTop: 40,
         }}>
         <View>
-          <Text style={styles.name}>Rashmi Arora</Text>
+          <Text style={styles.name}>Raj Arora</Text>
           <Text style={styles.label}>UID</Text>
           <Text style={styles.uid}>4723723010</Text>
         </View>
