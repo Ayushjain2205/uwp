@@ -6,8 +6,10 @@ import Nominee from '../components/create/Nominee';
 import Aadhar from '../components/create/Aadhar';
 import Photo from '../components/create/Photo';
 import Process from '../components/create/Process';
+import Start from '../components/create/Start';
 
 const screenComponents = {
+  Start: Start,
   About: About,
   Health: Health,
   Bank: Bank,
@@ -18,6 +20,7 @@ const screenComponents = {
 };
 
 const screenOrder = [
+  'Start',
   'About',
   'Health',
   'Bank',

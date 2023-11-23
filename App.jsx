@@ -5,7 +5,7 @@ import Landing from './screens/Landing'; // Adjust the path as per your director
 import Create from './screens/Create';
 
 const App = () => {
-  const [currentScreen, setCurrentScreen] = useState('Landing');
+  const [currentScreen, setCurrentScreen] = useState('Splash');
 
   useEffect(() => {
     let timer;
