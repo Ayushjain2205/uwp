@@ -1,79 +1,83 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Universal Welfare Protocol (UWP)
 
-# Getting Started
+## Introduction
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The Universal Welfare Protocol (UWP) is a groundbreaking blockchain-based solution designed to revolutionize how government benefits are distributed and accessed by citizens. Inspired by systems like UPI, UWP brings efficiency, transparency, and security to welfare schemes, ensuring quick and effective delivery of benefits directly to eligible individuals.
 
-## Step 1: Start the Metro Server
+## Problem being solved
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+I heard somewhere, India is divided into 3 parts: the ones who consume, the ones who make the lives of the ones who consume easier and lastly the labourers. Other than the 1% who just consume, the other 2 sects which make up the 105 crore, 50% of them have access to the internet, to use the internet for the welfare of the masses is crucial.
+We want UWP to be used by these masses to use this card in their daily life efficiently. Right now, we are having conversations about a pilot with the State Government.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## 🌐 Key Features
 
-```bash
-# using npm
-npm start
+### 🚫💰 **Gasless Transactions**
 
-# OR using Yarn
-yarn start
-```
+Experience seamless interactions, akin to Web2 apps, without the hassle of gas fees.
 
-## Step 2: Start your Application
+### 🔒🆔 **Digital ID Linked to Government ID**
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Your digital identity on the UWP platform is securely tied to your Aadhaar card, ensuring trust and authenticity.
 
-### For Android
+### 🛡️👆 **Biometric Security**
 
-```bash
-# using npm
-npm run android
+Biometric verification brings an extra layer of security, safeguarding personal and sensitive data.
 
-# OR using Yarn
-yarn android
-```
+### 🌐🔗 **Blockchain Benefits**
 
-### For iOS
+The UWP harnesses the power of blockchain for transparency, anti-corruption, and open access.
 
-```bash
-# using npm
-npm run ios
+### 💳💸 **Simplified Payments**
 
-# OR using Yarn
-yarn ios
-```
+Make payments easily, whether online or offline, just like UPI. "Pay with UWP" becomes your new go-to option.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## 🛠️ Technology Stack
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### 🎉 **Rally Protocol**
 
-## Step 3: Modifying your App
+- **React Native Application**: Leveraging Rally protocol for a gasless, user-friendly experience.
+- **Mobile Integration**: Utilizing native features like camera and biometrics for enhanced user interaction.
+- **EOAs**: Simplified UX with single sign-in, powered by Externally Owned Accounts.
 
-Now that you have successfully run the app, let's modify it.
+### 🔷 **Polygon**
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+- **Polygon ID & Verifiable Credentials**: Linking UWP cards to Aadhaar cards for verified digital identity.
+- **On-Chain Transparency**: Using Polygon network for transparent tracking of claims and benefits.
+- **Relevant Contracts**:
+  - [UWP Card Contract](https://mumbai.polygonscan.com/address/0xDb499857812569403F0aA1036d453d30945C8751)
+  - [UWP Scheme Contract](https://mumbai.polygonscan.com/address/0x40490aD8649B073Cf574059197aDBF1135a2Ab7f)
+  - [Polygon ID Schema](https://schema-builder.polygonid.me/schemas/da166074-479f-4648-a2d5-e95f215d8420)
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### 🔗 **Chainlink**
 
-## Congratulations! :tada:
+- **Aadhaar Verification**: Utilizing Chainlink Functions to authenticate Aadhaar card details.
+- **Unique UWP ID Creation**: Associating a unique UWP ID with each Aadhaar card.
+- **Chainlink Integration**:
+  - [Verify Aadhar Contract](https://mumbai.polygonscan.com/address/0x2DA88a5eb49Bcf8D2848eF0E5F3A72aC1E0B8Ea3)
+  - [Chainlink Function Link](https://functions.chain.link/mumbai/899)
 
-You've successfully run and modified your React Native App. :partying_face:
+## Getting Started
 
-### Now what?
+### Step 1: Create a Universal ID
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+Your wallet becomes your unique identifier in the UWP ecosystem.
 
-# Troubleshooting
+### Step 2: Create Your Profile
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Provide personal details, income information, and undergo government ID and photo verification.
 
-# Learn More
+### Step 3: Get a Verified Card
 
-To learn more about React Native, take a look at the following resources:
+Receive your blockchain-stored UWP card, your passport to various government schemes.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Step 4: Explore Schemes
+
+Discover a range of schemes you're eligible for and opt-in as per your needs.
+
+### Step 5: Scan to Verify
+
+Use your UWP card to verify and access benefits both online and offline seamlessly.
+
+## Conclusion
+
+UWP is more than just a digital card; it's a gateway to an efficient, transparent, and secure welfare system. By integrating advanced blockchain technology with user-friendly features, UWP is set to redefine how government benefits are distributed and accessed.
